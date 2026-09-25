@@ -1,0 +1,262 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Security Awareness Quiz - Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0f172a, #1e3a8a, #0f766e);
+        }
+
+        .container {
+            width: 900px;
+            min-height: 540px;
+            display: flex;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Left Section */
+        .left-section {
+            width: 50%;
+            padding: 55px 45px;
+            color: white;
+            background: linear-gradient(160deg, #0f172a, #1d4ed8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+        }
+
+        .shield {
+            width: 90px;
+            height: 105px;
+            margin: 0 auto 25px;
+            background: #22c55e;
+
+            clip-path: polygon(
+                50% 0%,
+                90% 15%,
+                90% 55%,
+                75% 78%,
+                50% 100%,
+                25% 78%,
+                10% 55%,
+                10% 15%
+            );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 42px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .left-section h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .left-section p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #dbeafe;
+            max-width: 350px;
+        }
+
+        .security-text {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #bfdbfe;
+        }
+
+        /* Right Section */
+        .right-section {
+            width: 50%;
+            padding: 55px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-section h2 {
+            font-size: 30px;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #334155;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 10px;
+            outline: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #2563eb, #0f766e);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 25px;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                flex-direction: column;
+            }
+
+            .left-section,
+            .right-section {
+                width: 100%;
+            }
+
+            .left-section {
+                padding: 40px 25px;
+            }
+
+            .right-section {
+                padding: 40px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Left Section -->
+        <div class="left-section">
+
+            <div class="shield">✓</div>
+
+            <h1>Security Awareness</h1>
+
+            <p>
+                Test your cybersecurity knowledge and learn
+                how to stay safe from online threats.
+            </p>
+
+            <div class="security-text">
+                🔐 Learn • Protect • Stay Secure
+            </div>
+
+        </div>
+
+        <!-- Right Section -->
+        <div class="right-section">
+
+            <h2>Welcome Back!</h2>
+
+            <p class="subtitle">
+                Login to start your Security Awareness Quiz.
+            </p>
+
+            <form action="/login" method="POST">
+
+                <div class="input-group">
+                    <label for="username">Username</label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        placeholder="Enter your username"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="login-btn">
+                    Login
+                </button>
+
+            </form>
+
+            <p class="footer-text">
+                🛡️ Stay Alert • Stay Safe • Stay Secure
+            </p>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+```

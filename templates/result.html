@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz Result</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #071952, #088395);
+            padding: 20px;
+        }
+
+        .result-card {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #071952;
+            margin-bottom: 10px;
+        }
+
+        .message {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .score-box {
+            background: #eefcff;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .score {
+            font-size: 45px;
+            font-weight: bold;
+            color: #088395;
+        }
+
+        .details {
+            font-size: 18px;
+            margin-top: 10px;
+            color: #444;
+        }
+
+        .percentage {
+            font-size: 24px;
+            font-weight: bold;
+            color: #071952;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 25px;
+            margin: 5px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            background: #088395;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .dashboard {
+            background: #071952;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="result-card">
+
+    <div class="icon">🎉</div>
+
+    <h1>Quiz Completed!</h1>
+
+    <p class="message">
+        Here is your cybersecurity quiz result.
+    </p>
+
+    <div class="score-box">
+
+        <div class="score">
+            {{ score }} / {{ total_questions }}
+        </div>
+
+        <div class="details">
+            Correct Answers
+        </div>
+
+        <div class="percentage">
+            {{ "%.2f"|format(percentage) }}%
+        </div>
+
+    </div>
+
+    <a href="{{ url_for('quiz') }}" class="btn">
+        Take Quiz Again
+    </a>
+
+    <a href="{{ url_for('dashboard') }}" class="btn dashboard">
+        Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>

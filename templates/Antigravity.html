@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #111827;
+            color: white;
+            padding: 18px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h2 {
+            margin: 0;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 8px;
+            color: white;
+            margin: 3px;
+            display: inline-block;
+        }
+
+        .add {
+            background: #16a34a;
+        }
+
+        .edit {
+            background: #2563eb;
+        }
+
+        .delete {
+            background: #dc2626;
+        }
+
+        .dashboard {
+            background: #7c3aed;
+        }
+
+        .container {
+            width: 92%;
+            margin: 30px auto;
+        }
+
+        .table-box {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 14px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #eef2ff;
+        }
+
+        .question {
+            min-width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <h2>🔐 Admin Panel</h2>
+
+    <div>
+        <a href="{{ url_for('dashboard') }}"
+           class="btn dashboard">
+           Dashboard
+        </a>
+
+        <a href="{{ url_for('logout') }}"
+           class="btn delete">
+           Logout
+        </a>
+    </div>
+
+</div>
+
+
+<div class="container">
+
+    <h1>Question Management</h1>
+
+    <a href="{{ url_for('add_question') }}"
+       class="btn add">
+       ➕ Add New Question
+    </a>
+
+    <br><br>
+
+    <div class="table-box">
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Question</th>
+                <th>Category</th>
+                <th>Correct Answer</th>
+                <th>Actions</th>
+            </tr>
+
+            {% for q in questions %}
+
+            <tr>
+
+                <td>{{ q.id }}</td>
+
+                <td class="question">
+                    {{ q.question }}
+                </td>
+
+                <td>
+                    {{ q.category }}
+                </td>
+
+                <td>
+                    <b>{{ q.correct_answer }}</b>
+                </td>
+
+                <td>
+
+                    <a href="{{ url_for('edit_question', question_id=q.id) }}"
+                       class="btn edit">
+                       ✏️ Edit
+                    </a>
+
+                    <a href="{{ url_for('delete_question', question_id=q.id) }}"
+                       class="btn delete"
+                       onclick="return confirm('Delete this question?');">
+                       🗑️ Delete
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>
